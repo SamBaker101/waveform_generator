@@ -17,13 +17,15 @@ def play_wave(filename):
     play_obj = wave_obj.play()
     play_obj.wait_done()  # Wait until sound has finished playing
 
-# Example usage
-freq_Hz = int(sys.argv[1]) if len(sys.argv) > 1 else 440
-duration_ms = int(sys.argv[2]) if len(sys.argv) > 2 else 1000
-sample_rate = 192000  
-filename = "out/sine_wave.wav"
+def main():
+    freq_Hz = int(sys.argv[1]) if len(sys.argv) > 1 else 440
+    duration_ms = int(sys.argv[2]) if len(sys.argv) > 2 else 1000
+    sample_rate = 192000  
+    filename = "out/sine_wave" + str(freq_Hz) + "_" + str(duration_ms) + ".wav"
 
-wave = generate_sine_wave(freq_Hz, duration_ms/1000.0, sample_rate)
+    wave = generate_sine_wave(freq_Hz, duration_ms/1000.0, sample_rate)
 
-save_wave(filename, wave, sample_rate)
-play_wave(filename)
+    save_wave(filename, wave, sample_rate)
+    play_wave(filename)
+
+main()
