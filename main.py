@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 from scipy.io import wavfile
 
 def generate_sine_wave(freq, duration, sample_rate):
@@ -11,8 +12,8 @@ def save_wave(filename, wave, sample_rate):
     wavfile.write(filename, sample_rate, wave)  
 
 # Example usage
-freq_Hz = 100
-duration_ms = 1000
+freq_Hz = int(sys.argv[1]) if len(sys.argv) > 1 else 440
+duration_ms = int(sys.argv[2]) if len(sys.argv) > 2 else 1000
 sample_rate = 441000  
 wave = generate_sine_wave(freq_Hz, duration_ms / 1000, sample_rate)
 
