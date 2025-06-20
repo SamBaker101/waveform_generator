@@ -6,9 +6,10 @@ The goal of this repository is to generate waveforms in the .wav format based on
 
 ## Requirements
 
-numpy
-sys
-scipy 
+numpy - store wave form data as linspace and complete math functions
+sys - pass arguments from commandline
+scipy - create and write wavefile
+simpleaudio - play audio
 
 ## Usage
 
