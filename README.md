@@ -13,5 +13,7 @@ simpleaudio - play audio
 
 ## Usage
 
+There are two different get_param functions which can be selected by uncommenting/commenting them in the main function. One prompts the user to enter their parameters while the other takes them from command line arguments based on the following syntax.
+
     python <path> <freq> <duration ms>
     python ./main.py 440 4000
