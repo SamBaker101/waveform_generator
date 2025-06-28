@@ -31,7 +31,6 @@ def get_params_ui():
     duration_ms = int(duration_ms) if duration_ms.isdigit() else 1000
     return freq_Hz, duration_ms
 
-
 def main():
     sample_rate = 192000  
     #freq_Hz, duration_ms = get_params_args()
