@@ -1,5 +1,18 @@
 from distutils.core import setup
 import py2exe
-import math as m
+import numpy as np
+import sys
+from scipy.io import wavfile
+import simpleaudio as sa
 
-setup(console=['hello.py'])
+excludes = []
+includes = ["scipy.special", "scipy.linalg", "numpy"]
+
+opts = {
+    "py2exe": {
+        "includes":includes,
+        "excludes":excludes
+    }
+}
+
+setup(console=['main.py'], options=opts,)

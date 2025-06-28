@@ -10,12 +10,19 @@ def generate_sine_wave(freq, duration, sample_rate):
 
 def save_wave(filename, wave, sample_rate):
     wave = (wave * 32767).astype(np.int16)  
-    wavfile.write(filename, sample_rate, wave)  
+    try: 
+        
+        wavfile.write(filename, sample_rate, wave)  
+    except Exception as e:
+        print("Error saving wave file:", filename, " : ", e)
 
 def play_wave(filename):
-    wave_obj = sa.WaveObject.from_wave_file(filename)
-    play_obj = wave_obj.play()
-    play_obj.wait_done()  # Wait until sound has finished playing
+    try: 
+        wave_obj = sa.WaveObject.from_wave_file(filename)
+        play_obj = wave_obj.play()
+        play_obj.wait_done()  # Wait until sound has finished playing
+    except Exception as e:
+        print("Error playing wave file:", filename, " : ", e)
 
 def get_params_args():
     freq_Hz = int(sys.argv[1]) if len(sys.argv) > 1 else 440
@@ -48,4 +55,5 @@ def main():
     save_wave(filename, wave, sample_rate)
     play_wave(filename)
 
-main()
+while True:
+    main()
